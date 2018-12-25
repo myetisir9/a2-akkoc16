@@ -5,7 +5,7 @@
 ### The landing page for assignment 3 should be at /
 #####################################################################
 
-from bottle import route, run, default_app, debug
+from bottle import route, run, default_app, debug, static_file
 
 def htmlify(title,text):
     page = """
@@ -24,10 +24,14 @@ def htmlify(title,text):
     return page
 
 def index():
-    return htmlify("My lovely website",
-                   "This is going to be an awesome website, when it is finished.")
+   return static_file('index.html', root='./assignment1')
 
-route('/', 'GET', index)
+
+def static_file_callback(filename):
+	return static_file(filename, root='./assignment1')
+
+#route('/', 'GET', index)
+route('/<filename:path>', 'GET', static_file_callback)
 
 #####################################################################
 ### Don't alter the below code.
