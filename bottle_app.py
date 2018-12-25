@@ -24,13 +24,13 @@ def htmlify(title,text):
     return page
 
 def index():
-   return static_file('index.html', root='./assignment1')
+   return static_file('index.html', root='./BIL101 A1')
 
 
 def static_file_callback(filename):
-	return static_file(filename, root='./assignment1')
+	return static_file(filename, root='./BIL101 A1')
 
-#route('/', 'GET', index)
+route('/', 'GET', index)
 route('/<filename:path>', 'GET', static_file_callback)
 
 #####################################################################
