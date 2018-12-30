@@ -9,7 +9,7 @@ from bottle import route, run, default_app, debug, static_file
 global comments
 
 
-def html_comments():
+def comments():
 	global comments
 	text = '<ul>'
 	for i in range(0,len(comments)):
