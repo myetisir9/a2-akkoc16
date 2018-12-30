@@ -31,10 +31,13 @@ def htmlify(title,text):
     """ % (title,text)
     return page
 
+def index():
+   return static_file('index.html', root='./BIL101 A1')
+
 @route('/comment')
 def comment():
 	return '''
-            <form action="/do_comment" method="post">
+            <form action="/comments" method="post">
                 Comment: <input name="comment" type="text" value="" /></br>
                 Password: <input name="passwordd" type="password" value="" />
                 <input value="Click me" type="submit" />
@@ -42,8 +45,23 @@ def comment():
         '''
 commentlist = []
 
-def index():
-   return static_file('index.html', root='./BIL101 A1')
+@post('/comments')
+def comments():
+
+    k=0
+    while True:
+        x=input('Enter your comment:')
+    y=input('Enter your password:')
+    password_hash2 = create_hash(y)
+
+    if password_hash == password_hash2:
+        commentList.append(x)
+        print('Previous comments:')
+        k+=1
+        for j in range(k):
+            print(str(j+1)+'.'+commentList[j])
+    else :
+        print('Wrong password.')
 
 
 def static_file_callback(filename):
