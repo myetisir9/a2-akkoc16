@@ -6,16 +6,6 @@
 #####################################################################
 
 from bottle import route, run, default_app, debug, static_file
-global comments
-
-
-def comments():
-	global comments
-	text = '<ul>'
-	for i in range(0,len(comments)):
-		text += '<li class="message">'+comments[i]+'</li>'
-	text += '</ul>'
-	return text
 
 def htmlify(title,text):
     page = """
