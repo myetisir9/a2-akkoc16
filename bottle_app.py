@@ -45,23 +45,7 @@ def comment():
         '''
 commentlist = []
 
-@post('/comments')
-def comments():
 
-    k=0
-    while True:
-        x=input('Enter your comment:')
-    y=input('Enter your password:')
-    password_hash2 = create_hash(y)
-
-    if password_hash == password_hash2:
-        commentList.append(x)
-        print('Previous comments:')
-        k+=1
-        for j in range(k):
-            print(str(j+1)+'.'+commentList[j])
-    else :
-        print('Wrong password.')
 
 
 def static_file_callback(filename):
